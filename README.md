@@ -1,8 +1,8 @@
-# ELF: Embedded Language Flows (Unofficial PyTorch Reproduction)
+# ELF: Embedded Language Flows (Unofficial PyTorch Reproduction) (OpenWebText Only)
 
 > [!CAUTION]
 >
-> The results are not directly comparable with baselines ([MDLM](https://github.com/kuleshov-group/mdlm), [Duo](https://github.com/s-sahoo/duo), [FLM](https://github.com/david3684/flm), ...)
+> The OpenWebText results are not directly comparable with baselines ([MDLM](https://github.com/kuleshov-group/mdlm), [Duo](https://github.com/s-sahoo/duo), [FLM](https://github.com/david3684/flm), ...)
 > due to tokenization and preprocessing differences used in the ELF paper.
 >
 > Specifically, ELF uses a custom preprocessed OpenWebText dataset (see [`openwebtext-t5`](https://huggingface.co/datasets/embedded-language-flows/openwebtext-t5)).
