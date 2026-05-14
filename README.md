@@ -1,4 +1,4 @@
-# ELF: Embedded Language Flows (Unofficial PyTorch Reproduction) (OpenWebText Only)
+# ELF: Embedded Language Flows (Unofficial PyTorch Reproduction)
 
 > [!CAUTION]
 >
@@ -10,7 +10,7 @@
 
 ---
 
- **This is an unofficial PyTorch reproduction** of *ELF: Embedded Language Flows*.\
+ **This is an unofficial PyTorch reproduction (OpenWebText Only)** of *ELF: Embedded Language Flows*.\
   The official JAX/TPU implementation is at <https://github.com/lillian039/ELF>, and the official checkpoints are in HuggingFace at [`embedded-language-flows`](https://huggingface.co/embedded-language-flows).
 
  This repository was developed using [Claude Code](https://claude.com/claude-code).
