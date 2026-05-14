@@ -1,0 +1,70 @@
+data_path: embedded-language-flows/openwebtext-t5
+max_length: 1024
+encoder_model_name: t5-small
+encoder_checkpoint: null
+latent_mean: 0.0
+latent_std: 0.2
+model: ELF-B
+bottleneck_dim: 128
+num_time_tokens: 4
+num_self_cond_cfg_tokens: 4
+num_model_mode_tokens: 4
+denoiser_p_mean: -1.5
+denoiser_p_std: 0.8
+denoiser_noise_scale: 2.0
+t_eps: 0.05
+time_schedule: logit_normal
+decoder_prob: 0.2
+decoder_noise_scale: 5.0
+decoder_p_mean: 0.8
+decoder_p_std: 0.8
+self_cond_prob: 0.5
+epochs: 8
+global_batch_size: 512
+blr: 0.001
+weight_decay: 0.0
+warmup_epochs: 0.5
+warmup_steps: -1
+optimizer: muon
+ema_decay1: 0.9999
+sampling_configs_path: configs/sampling_configs/uncond_sampling_configs.yml
+num_samples: 1000
+log_freq: 100
+save_freq: 1
+eval_freq: 1
+output_dir: outputs/elf_b-owt-lightning
+resume: null
+use_wandb: true
+wandb_project: elf
+wandb_entity: null
+wandb_run_name: elf_b-owt-lightning
+seed: 42
+num_workers: 8
+prefetch_factor: 4
+pin_memory: true
+persistent_workers: true
+use_flash: true
+precision: fp32
+epoch_eval_num_samples: 256
+epoch_eval_num_sampling_steps: 32
+epoch_eval_sde_gamma: 1.5
+epoch_eval_self_cond_cfg_scale: 3.0
+sampling_configs:
+- sampling_method: sde
+  num_sampling_steps:
+  - 32
+  cfgs:
+  - 1
+  sde_gamma: 1.5
+  self_cond_cfg_scales:
+  - 3
+  time_schedule: logit_normal
+- sampling_method: sde
+  num_sampling_steps:
+  - 64
+  cfgs:
+  - 1
+  sde_gamma: 1.0
+  self_cond_cfg_scales:
+  - 3
+  time_schedule: logit_normal

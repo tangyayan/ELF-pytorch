@@ -1,0 +1,6 @@
+{"epoch": 1, "step": 38034, "gen_ppl_32step": 2.7346501674952757, "sample_entropy_32step": 0.6992088672027228}
+{"epoch": 2, "step": 76068, "gen_ppl_32step": 37.107140675617224, "sample_entropy_32step": 5.165480838495615}
+{"epoch": 3, "step": 114102, "gen_ppl_32step": 28.62617332008254, "sample_entropy_32step": 5.2050934856065485}
+{"epoch": 4, "step": 152136, "gen_ppl_32step": 25.004180644094813, "sample_entropy_32step": 5.157374851007953}
+{"epoch": 5, "step": 190170, "gen_ppl_32step": 25.577312264415802, "sample_entropy_32step": 5.1936411374060905}
+{"epoch": 6, "step": 228204, "gen_ppl_32step": 26.114437639173573, "sample_entropy_32step": 5.2075360473214385}

@@ -1,0 +1,1 @@
+{"ppl": 25.612019129924814, "mean_entropy": 5.195889490381923, "checkpoint": "outputs/elf_b-owt-lightning/last.ckpt", "num_samples": 1000, "num_nonempty": 1000, "num_sampling_steps": 32, "sde_gamma": 1.5, "self_cond_cfg_scale": 3.0}

@@ -1,0 +1,37 @@
+# Core deep-learning stack. B200 (sm_100) needs CUDA 12.8 wheels — install via:
+#   pip install --upgrade torch torchvision --index-url https://download.pytorch.org/whl/cu128
+# For older GPUs the default cu121/cu124 wheels are fine.
+torch
+torchvision
+lightning
+
+# Tokenization, datasets, HF utilities
+transformers>=4.41.2,<4.45.0
+tokenizers>=0.19.0
+sentencepiece>=0.1.99
+datasets>=2.19.0
+huggingface-hub>=0.23.0
+safetensors>=0.4.0
+accelerate>=0.30.0
+
+# Numerics / I/O
+einops
+numpy>=1.26.4,<2.0.0
+scipy>=1.12.0
+PyYAML>=6.0.1
+tqdm>=4.66.0
+
+# Eval metrics
+sacrebleu
+rouge-score
+
+# Plotting / HTTP (used by a couple of utility paths)
+matplotlib>=3.8.0
+requests>=2.31.0
+
+# Optional logging — only used when `use_wandb: true`
+wandb>=0.16.6
+
+# Optional, only if you use the FlashAttention path (`use_flash: true`, the default).
+# Builds out-of-tree; see https://github.com/Dao-AILab/flash-attention for install.
+# flash-attn
