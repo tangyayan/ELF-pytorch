@@ -67,3 +67,6 @@ data/
 .ruff_cache/
 .coverage
 htmlcov/
+
+# model
+*.ckpt

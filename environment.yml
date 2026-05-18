@@ -10,7 +10,7 @@ dependencies:
       # B200 (sm_100) requires CUDA 12.8+ wheels; the extra-index-url below pins the
       # cu128 channel. For older GPUs, drop the --extra-index-url line and let pip
       # pick the default cu121/cu124 wheels.
-      - --extra-index-url=https://download.pytorch.org/whl/cu128
+      # - --extra-index-url=https://download.pytorch.org/whl/cu124
       - torch
       - torchvision
       - lightning

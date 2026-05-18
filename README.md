@@ -1,5 +1,7 @@
 # ELF: Embedded Language Flows (Unofficial PyTorch Reproduction)
 
+The project is based on: https://github.com/Ugness/ELF-pytorch
+
 > [!CAUTION]
 >
 > The OpenWebText results are not directly comparable with baselines ([MDLM](https://github.com/kuleshov-group/mdlm), [Duo](https://github.com/s-sahoo/duo), [FLM](https://github.com/david3684/flm), ...)
