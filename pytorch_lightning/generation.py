@@ -118,7 +118,7 @@ def test_generation_uncond(
             text = tokenizer.decode(row.cpu().tolist(), skip_special_tokens=True)
             generated_texts.append(text)
 
-    return generated_texts, all_step_results
+    return generated_texts
 
 
 def test_generation_cond(
