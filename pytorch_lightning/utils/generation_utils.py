@@ -51,14 +51,14 @@ def shift_left(x: torch.Tensor, shift_per_sample: torch.Tensor,
     return shifted
 
 
-@torch.no_grad()
 def generate_samples(
     model, z: torch.Tensor, t_steps: torch.Tensor,
     cond_seq: Optional[torch.Tensor], cond_seq_mask: Optional[torch.Tensor],
     *, config, sampling_config, cfg_scale: float, self_cond_cfg_scale: float,
     generator: Optional[torch.Generator] = None,
+    print_per_step: bool = False,
+    return_intermediates: bool = False,
 ) -> torch.Tensor:
-    """Run a full sampling trajectory (SDE or ODE inner steps + final ODE step at t=1)."""
     method = sampling_config.sampling_method
     if cond_seq is None:
         cond_seq = torch.zeros_like(z)
@@ -67,7 +67,9 @@ def generate_samples(
     z = restore_cond(z, cond_seq, cond_seq_mask)
     x_pred = restore_cond(torch.zeros_like(z), cond_seq, cond_seq_mask)
 
-    inner = len(t_steps) - 2  # last step always ODE
+    intermediates = []  # (t_next, z, x_pred)
+
+    inner = len(t_steps) - 2
     gamma = float(getattr(sampling_config, "sde_gamma", 0.0))
     for k in range(inner):
         t = float(t_steps[k].item())
@@ -88,6 +90,9 @@ def generate_samples(
         else:
             raise ValueError(f"Invalid sampling method: {method}")
 
+        if return_intermediates:
+            intermediates.append((t_next, z.clone(), x_pred.clone()))
+
     t_last = float(t_steps[-2].item())
     t_final = float(t_steps[-1].item())
     z, x_pred = ode_step(
@@ -95,6 +100,10 @@ def generate_samples(
         cfg_scale=cfg_scale, self_cond_cfg_scale=self_cond_cfg_scale,
         cond_seq=cond_seq, cond_seq_mask=cond_seq_mask,
     )
+
+    if return_intermediates:
+        intermediates.append((t_final, z.clone(), x_pred.clone()))
+        return z, intermediates
     return z
 
 

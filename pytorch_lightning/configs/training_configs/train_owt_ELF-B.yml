@@ -38,7 +38,7 @@ self_cond_prob: 0.5
 
 # Training
 epochs: 6
-global_batch_size: 512
+global_batch_size: 8
 blr: 0.001
 weight_decay: 0.0
 warmup_epochs: 0.5
@@ -75,7 +75,7 @@ pin_memory: true
 persistent_workers: true
 
 # Optimization knobs
-use_flash: true
+use_flash: false
 precision: fp32
 
 # Per-epoch eval callback (Task 4)

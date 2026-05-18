@@ -95,7 +95,7 @@ class Config:
     # PPL eval
     online_eval: bool = True
     eval_ppl_model: str = "gpt2-large"
-    eval_ppl_batch_size: int = 64
+    eval_ppl_batch_size: int = 1
     eval_ppl_max_length: int = 1024
 
     # Logging / checkpointing
